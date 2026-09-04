@@ -15,6 +15,10 @@ from langchain_core.runnables import RunnablePassthrough
 
 app = FastAPI(title="Sovereign AI Workbench - RBAC")
 
+@app.get("/")
+def read_root():
+    return {"status": "online", "service": "Sovereign AI Workbench API", "ai": "Featherless.ai"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
